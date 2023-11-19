@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "/dto";
+
+service GreetingService {
+    rpc Greeting(GreetingServiceRequest) returns (GreetingServiceReply) {}
+    rpc LotsOfGreetingReplies(GreetingServiceRequest) returns (stream GreetingServiceReply) {}
+}
+
+message GreetingServiceRequest {
+    int64 count = 1;
+}
+
+message GreetingServiceReply {
+    int64 id = 1;
+    string message = 2;
+}
